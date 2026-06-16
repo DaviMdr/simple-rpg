@@ -380,7 +380,7 @@ Responsável pela geração dos valores aleatórios dos ataques.
 Clone o repositório:
 
 ```bash
-git clone <url-do-repositorio>
+git clone <(https://github.com/DaviMdr/simple-rpg)>
 ```
 
 Entre na pasta do projeto:
