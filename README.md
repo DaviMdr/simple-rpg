@@ -397,7 +397,7 @@ dotnet run
 
 ---
 
-## 🔮 Melhorias Futuras
+## Melhorias Futuras
 
 - Sistema de equipamentos
 - Loja de itens
