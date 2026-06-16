@@ -128,7 +128,7 @@ Os inimigos são escolhidos aleatoriamente ao iniciar uma batalha.
 
 ---
 
-## ⚔️ Sistema de Combate
+## Sistema de Combate
 
 O combate ocorre em turnos.
 
@@ -217,7 +217,7 @@ Dragão → 150 XP
 
 ---
 
-## 📈 Sistema de Nível
+## Sistema de Nível
 
 Ao atingir 100 pontos de experiência:
 
