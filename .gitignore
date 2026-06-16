@@ -1,0 +1,22 @@
+# Build
+bin/
+obj/
+
+# Visual Studio
+.vs/
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+
+# Arquivos de usuário
+*.user
+*.suo
+
+# Saves do jogo
+Saves/
+
+# Logs
+*.log
