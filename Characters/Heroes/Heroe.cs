@@ -1,5 +1,6 @@
 ﻿using RPG_Simplificado.Characters;
 using RPG_Simplificado.Items;
+using RPG_Simplificado.Finance;
 
 namespace RPG_Simplificado.Characters.Heroes;
 
@@ -9,6 +10,7 @@ public abstract class Heroe : Character
     public int Experience { get; set; }
 
     public List<Potion> Inventory { get; }
+    public Wallet Wallet { get; set; }
 
     protected Heroe(
         string name,
@@ -20,6 +22,7 @@ public abstract class Heroe : Character
         Level = 1;
         Experience = 0;
         Inventory = new List<Potion>();
+        Wallet = new Wallet();
     }
 
     public abstract int SpecialAttack();
