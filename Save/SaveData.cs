@@ -18,5 +18,7 @@ public class SaveData
 
     public int Experience { get; set; }
 
+    public decimal Gold { get; set; }
+
     public List<Potion> Inventory { get; set; } = new();
 }

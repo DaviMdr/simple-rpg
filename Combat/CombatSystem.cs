@@ -27,6 +27,8 @@ public class CombatSystem
 
                 hero.GainExperience(enemy.ExperienceReward);
 
+                hero.Wallet.Deposit(enemy.GoldReward);
+
                 SaveManager.SaveGame(hero);
 
                 Console.WriteLine(
@@ -178,7 +180,7 @@ public class CombatSystem
         Console.WriteLine("\n===== STATUS =====");
 
         Console.WriteLine(
-            $"{hero.Name} | HP: {hero.HP} | Nível: {hero.Level} | XP: {hero.Experience}"
+            $"{hero.Name} | HP: {hero.HP} | Nível: {hero.Level} | XP: {hero.Experience} | Ouro: {hero.Wallet.Balance}"
         );
 
         Console.WriteLine(

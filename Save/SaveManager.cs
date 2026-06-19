@@ -20,7 +20,8 @@ public static class SaveManager
             Defense = hero.Defense,
             Level = hero.Level,
             Experience = hero.Experience,
-            Inventory = hero.Inventory
+            Inventory = hero.Inventory,
+            Gold = hero.Wallet.Balance
         };
 
         string json =

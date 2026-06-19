@@ -9,4 +9,15 @@ public class Transaction
     public string Type { get; set; }
 
     public string Description { get; set; }
+
+    public Transaction(
+        decimal amount,
+        string type,
+        string description)
+    {
+        Date = DateTime.Now;
+        Amount = amount;
+        Type = type;
+        Description = description;
+    }
 }
