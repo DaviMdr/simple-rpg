@@ -79,4 +79,8 @@ public class Wallet
             Console.WriteLine();
         }
     }
+    public void RestoreBalance(decimal balance)
+    {
+        Balance = balance;
+    }
 }

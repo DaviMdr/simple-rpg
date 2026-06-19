@@ -10,7 +10,7 @@ public abstract class Heroe : Character
     public int Experience { get; set; }
 
     public List<Potion> Inventory { get; }
-    public Wallet Wallet { get; set; }
+    public Wallet Wallet { get; }
 
     protected Heroe(
         string name,
@@ -52,12 +52,15 @@ public abstract class Heroe : Character
         int attack,
         int defense,
         int level,
-        int experience)
+        int experience,
+        decimal gold)
     {
         HP = hp;
         Attack = attack;
         Defense = defense;
         Level = level;
         Experience = experience;
+
+        Wallet.RestoreBalance(gold);
     }
 }

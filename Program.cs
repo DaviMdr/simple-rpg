@@ -51,7 +51,8 @@ if (menuOption == 2 && SaveManager.SaveExists())
         data.Attack,
         data.Defense,
         data.Level,
-        data.Experience);
+        data.Experience,
+        data.Gold);
 
     foreach (var potion in data.Inventory)
     {

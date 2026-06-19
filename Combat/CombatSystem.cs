@@ -2,6 +2,7 @@
 using RPG_Simplificado.Characters.Enemies;
 using RPG_Simplificado.Utils;
 using RPG_Simplificado.Save;
+using RPG_Simplificado.Finance;
 
 namespace RPG_Simplificado.Combat;
 
