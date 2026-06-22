@@ -39,4 +39,51 @@ public class Merchant
             );
         }
     }
+
+    public Item GetItem(int index)
+    {
+        return Catalog[index];
+    }
+
+    public void BuyItem(
+        Heroe heroe,
+        int itemIndex)
+    {
+        if (
+            itemIndex < 0 ||
+            itemIndex >= Catalog.Count
+        )
+        {
+            Console.WriteLine(
+                "Item inexistente."
+            );
+
+            return;
+        }
+
+        Item item = Catalog[itemIndex];
+
+        try
+        {
+            heroe.Wallet.Withdraw(
+                item.Price
+            );
+
+            heroe.Inventory.Add(item);
+
+            Console.WriteLine(
+                $"{item.Name} comprado com sucesso."
+            );
+
+            Console.WriteLine(
+                $"Saldo restante: {heroe.Wallet.Balance}"
+            );
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(
+                ex.Message
+            );
+        }
+    }
 }

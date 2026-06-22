@@ -123,9 +123,13 @@ else
     );
 }
 
-Merchant merchant = new Merchant();
 
-merchant.ShowProducts();
+
+hero.Wallet.Deposit(100);
+
+ShopMenu shopMenu = new ShopMenu();
+
+shopMenu.Open(hero);
 
 Random random = new Random();
 
