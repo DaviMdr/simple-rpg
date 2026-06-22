@@ -3,6 +3,7 @@ using RPG_Simplificado.Characters.Heroes;
 using RPG_Simplificado.Combat;
 using RPG_Simplificado.Items;
 using RPG_Simplificado.Save;
+using RPG_Simplificado.Systems.Shop;
 
 Console.WriteLine("=== RPG Simplificado ===");
 
@@ -105,13 +106,26 @@ else
     }
 
     hero.Inventory.Add(
-        new Potion("Poção Pequena", 20)
+        new Potion(
+            "Poção Pequena",
+            "Recupera 20 HP",
+            10,
+            20)
     );
 
     hero.Inventory.Add(
-        new Potion("Poção Grande", 50)
+        new Potion(
+            "Poção Grande",
+            "Recupera 50 HP",
+            25,
+            50
+        )
     );
 }
+
+Merchant merchant = new Merchant();
+
+merchant.ShowProducts();
 
 Random random = new Random();
 

@@ -9,7 +9,7 @@ public abstract class Heroe : Character
     public int Level { get; set; }
     public int Experience { get; set; }
 
-    public List<Potion> Inventory { get; }
+    public List<Item> Inventory { get; }
     public Wallet Wallet { get; }
 
     protected Heroe(
@@ -21,7 +21,7 @@ public abstract class Heroe : Character
     {
         Level = 1;
         Experience = 0;
-        Inventory = new List<Potion>();
+        Inventory = new List<Item>();
         Wallet = new Wallet();
     }
 

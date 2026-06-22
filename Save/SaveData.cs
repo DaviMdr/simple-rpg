@@ -20,5 +20,5 @@ public class SaveData
 
     public decimal Gold { get; set; }
 
-    public List<Potion> Inventory { get; set; } = new();
+    public List<Item> Inventory { get; set; } = new();
 }
