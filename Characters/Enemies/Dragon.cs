@@ -3,7 +3,7 @@
 public class Dragon : Enemy
 {
     public Dragon()
-        : base("Dragon", 150, 30, 15, 150)
+        : base("Dragon", 150, 30, 15, 150, 100)
     {
     }
 }

@@ -2,6 +2,8 @@
 using RPG_Simplificado.Characters.Enemies;
 using RPG_Simplificado.Utils;
 using RPG_Simplificado.Save;
+using RPG_Simplificado.Finance;
+using RPG_Simplificado.Items;
 
 namespace RPG_Simplificado.Combat;
 
@@ -26,6 +28,8 @@ public class CombatSystem
                 );
 
                 hero.GainExperience(enemy.ExperienceReward);
+
+                hero.Wallet.Deposit(enemy.GoldReward);
 
                 SaveManager.SaveGame(hero);
 
@@ -131,7 +135,7 @@ public class CombatSystem
     {
         if (hero.Inventory.Count == 0)
         {
-            Console.WriteLine("Você não possui poções.");
+            Console.WriteLine("Você não possui itens.");
             return;
         }
 
@@ -158,19 +162,28 @@ public class CombatSystem
 
         if (choice < 0 || choice >= hero.Inventory.Count)
         {
-            Console.WriteLine("Poção inexistente.");
+            Console.WriteLine("Item inexistente.");
             return;
         }
 
-        string potionName = hero.Inventory[choice].Name;
+        Item selectedItem = hero.Inventory[choice];
 
-        hero.Inventory[choice].Use(hero);
+        if (selectedItem is Potion potion)
+        {
+            potion.Use(hero);
 
-        Console.WriteLine(
-            $"{hero.Name} utilizou {potionName}."
-        );
+            Console.WriteLine(
+                $"{hero.Name} utilizou {potion.Name}."
+            );
 
-        hero.Inventory.RemoveAt(choice);
+            hero.Inventory.RemoveAt(choice);
+        }
+        else
+        {
+            Console.WriteLine(
+                "Este item não pode ser utilizado."
+            );
+        }
     }
 
     private void ShowStatus(Heroe hero, Enemy enemy)
@@ -178,7 +191,7 @@ public class CombatSystem
         Console.WriteLine("\n===== STATUS =====");
 
         Console.WriteLine(
-            $"{hero.Name} | HP: {hero.HP} | Nível: {hero.Level} | XP: {hero.Experience}"
+            $"{hero.Name} | HP: {hero.HP} | Nível: {hero.Level} | XP: {hero.Experience} | Ouro: {hero.Wallet.Balance}"
         );
 
         Console.WriteLine(

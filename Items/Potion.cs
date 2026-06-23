@@ -3,20 +3,29 @@ using RPG_Simplificado.Interfaces;
 
 namespace RPG_Simplificado.Items;
 
-public class Potion : IUsable
+public class Potion : Item, IUsable
 {
-    public string Name { get; set; }
     public int HealAmount { get; set; }
 
     public Potion()
+        : base(
+            "Poção Simples",
+            "Recupera 20 HP",
+            10)
     {
-        Name = "Poção Simples";
         HealAmount = 20;
     }
 
-    public Potion(string name, int healAmount)
+    public Potion(
+        string name,
+        string description,
+        decimal price,
+        int healAmount)
+        : base(
+            name,
+            description,
+            price)
     {
-        Name = name;
         HealAmount = healAmount;
     }
 

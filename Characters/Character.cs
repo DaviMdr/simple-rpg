@@ -24,15 +24,14 @@ public abstract class Character
         return HP > 0;
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
-        int finalDamage = Math.Max(1, damage - Defense);
+        int finalDamage =
+            Math.Max(
+                1,
+                damage - Defense
+            );
 
         HP -= finalDamage;
-
-        if (HP < 0)
-        {
-            HP = 0;
-        }
     }
 }
