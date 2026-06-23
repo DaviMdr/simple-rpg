@@ -10,6 +10,8 @@ public abstract class Heroe : Character
     public int Experience { get; set; }
 
     public List<Item> Inventory { get; }
+    public Weapon? EquippedWeapon { get; set; }
+    public Armor? EquippedArmor { get; set; }
     public Wallet Wallet { get; }
 
     protected Heroe(
@@ -26,6 +28,22 @@ public abstract class Heroe : Character
     }
 
     public abstract int SpecialAttack();
+
+    public int GetTotalAttack()
+    {
+        int weaponBonus =
+            EquippedWeapon?.AttackBonus ?? 0;
+
+        return Attack + weaponBonus;
+    }
+
+    public int GetTotalDefense()
+    {
+        int armorBonus =
+            EquippedArmor?.DefenseBonus ?? 0;
+
+        return Defense + armorBonus;
+    }
 
     public void GainExperience(int xp)
     {
@@ -62,5 +80,16 @@ public abstract class Heroe : Character
         Experience = experience;
 
         Wallet.RestoreBalance(gold);
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        int finalDamage =
+            Math.Max(
+                1,
+                damage - GetTotalDefense()
+            );
+
+        HP -= finalDamage;
     }
 }
