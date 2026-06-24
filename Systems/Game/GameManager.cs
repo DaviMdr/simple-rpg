@@ -3,6 +3,7 @@ using RPG_Simplificado.Characters.Heroes;
 using RPG_Simplificado.Combat;
 using RPG_Simplificado.Save;
 using RPG_Simplificado.Systems.Shop;
+using RPG_Simplificado.Systems.Inventory;
 
 namespace RPG_Simplificado.Systems.Game;
 
@@ -52,10 +53,19 @@ public class GameManager
 
         hero.Wallet.Deposit(100);
 
-        ShopMenu shopMenu =
-            new ShopMenu();
-
+        ShopMenu shopMenu = new ShopMenu();
         shopMenu.Open(hero);
+
+        InventoryMenu inventoryMenu = new();
+        inventoryMenu.Open(hero);
+
+        Console.WriteLine(
+    $"Arma equipada: {hero.EquippedWeapon?.Name ?? "Nenhuma"}"
+);
+
+        Console.WriteLine(
+            $"Armadura equipada: {hero.EquippedArmor?.Name ?? "Nenhuma"}"
+        );
 
         Enemy enemy =
             EnemyFactory.CreateRandomEnemy();

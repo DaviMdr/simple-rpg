@@ -76,9 +76,11 @@ public class CombatSystem
         {
             case 1:
                 {
+                    int totalAttack = hero.GetTotalAttack();
+
                     int damage = Dice.Roll(
-                        Math.Max(1, hero.Attack - 5),
-                        hero.Attack
+                        Math.Max(1, totalAttack - 5),
+                        totalAttack
                     );
 
                     enemy.TakeDamage(damage);
@@ -192,6 +194,22 @@ public class CombatSystem
 
         Console.WriteLine(
             $"{hero.Name} | HP: {hero.HP} | Nível: {hero.Level} | XP: {hero.Experience} | Ouro: {hero.Wallet.Balance}"
+        );
+
+        Console.WriteLine(
+            $"Arma: {hero.EquippedWeapon?.Name ?? "Nenhuma"}"
+        );
+
+        Console.WriteLine(
+            $"Armadura: {hero.EquippedArmor?.Name ?? "Nenhuma"}"
+        );
+
+        Console.WriteLine(
+            $"ATK Total: {hero.GetTotalAttack()}"
+        );
+
+        Console.WriteLine(
+            $"DEF Total: {hero.GetTotalDefense()}"
         );
 
         Console.WriteLine(

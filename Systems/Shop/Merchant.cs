@@ -26,6 +26,60 @@ public class Merchant
                 50
             )
         );
+
+        Catalog.Add(
+            new Weapon(
+                "Espada de Ferro",
+                "Uma espada básica",
+                50,
+                5
+            )
+        );
+
+        Catalog.Add(
+            new Weapon(
+                "Machado de Guerra",
+                "Ataque pesado",
+                100,
+                10
+            )
+        );
+
+        Catalog.Add(
+            new Weapon(
+                "Cajado de Madeira",
+                "Lanca magias poderosas",
+                150,
+                20
+            )
+        );
+
+        Catalog.Add(
+            new Weapon(
+                "Arco encantado",
+                "Ataque rapidos",
+                75,
+                10 * 2
+            )
+        );
+
+        Catalog.Add(
+            new Armor(
+                "Armadura de Couro",
+                "Proteção simples",
+                40,
+                3
+            )
+        );
+
+        Catalog.Add(
+            new Armor(
+                "Armadura de Ferro",
+                "Proteção avançada",
+                80,
+                6
+            )
+        );
     }
 
     public void ShowProducts()
