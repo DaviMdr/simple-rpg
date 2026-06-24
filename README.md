@@ -128,7 +128,7 @@ Os inimigos são escolhidos aleatoriamente ao iniciar uma batalha.
 
 ---
 
-## ⚔️ Sistema de Combate
+## Sistema de Combate
 
 O combate ocorre em turnos.
 
@@ -217,7 +217,7 @@ Dragão → 150 XP
 
 ---
 
-## 📈 Sistema de Nível
+## Sistema de Nível
 
 Ao atingir 100 pontos de experiência:
 
@@ -380,7 +380,7 @@ Responsável pela geração dos valores aleatórios dos ataques.
 Clone o repositório:
 
 ```bash
-git clone <url-do-repositorio>
+git clone <(https://github.com/DaviMdr/simple-rpg)>
 ```
 
 Entre na pasta do projeto:
@@ -397,7 +397,7 @@ dotnet run
 
 ---
 
-## 🔮 Melhorias Futuras
+## Melhorias Futuras
 
 - Sistema de equipamentos
 - Loja de itens
