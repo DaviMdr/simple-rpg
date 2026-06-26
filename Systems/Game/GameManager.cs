@@ -9,6 +9,61 @@ namespace RPG_Simplificado.Systems.Game;
 
 public class GameManager
 {
+    private readonly ShopMenu _shopMenu;
+    private readonly InventoryMenu _inventoryMenu;
+    private readonly CombatSystem _combatSystem;
+    private Heroe LoadOrCreateHero(int menuOption)
+    {
+        if (menuOption == 2 && SaveManager.SaveExists())
+        {
+            SaveData data = SaveManager.LoadData();
+
+            Heroe heroe = HeroFactory.LoadHero(data);
+
+            Console.WriteLine(
+                "\nSave carregado com sucesso!"
+            );
+
+            return heroe;
+        }
+
+        return HeroFactory.CreateNewHero();
+    }
+
+    private void ShowHeroInfo(Heroe hero)
+    {
+        Console.WriteLine();
+        Console.WriteLine(
+            $"Herói: {hero.Name}"
+        );
+
+        Console.WriteLine(
+            $"Nível: {hero.Level}"
+        );
+
+        Console.WriteLine(
+            $"XP: {hero.Experience}"
+        );
+    }
+
+    private void ShowEnemyInfo(Enemy enemy)
+    {
+        Console.WriteLine(
+            $"Inimigo: {enemy.Name}"
+        );
+
+        Console.WriteLine();
+        Console.WriteLine(
+            "Combate iniciado!"
+        );
+    }
+
+    public GameManager()
+    {
+        _shopMenu = new ShopMenu();
+        _inventoryMenu = new InventoryMenu();
+        _combatSystem = new CombatSystem();
+    }
     public void Start()
     {
         Console.WriteLine("=== RPG Simplificado ===");
@@ -28,74 +83,19 @@ public class GameManager
             return;
         }
 
-        Heroe hero;
+        Heroe hero = LoadOrCreateHero(menuOption);
 
-        if (
-            menuOption == 2 &&
-            SaveManager.SaveExists()
-        )
-        {
-            SaveData data =
-                SaveManager.LoadData();
+        _shopMenu.Open(hero);
 
-            hero =
-                HeroFactory.LoadHero(data);
+        _inventoryMenu.Open(hero);
 
-            Console.WriteLine(
-                "\nSave carregado com sucesso!"
-            );
-        }
-        else
-        {
-            hero =
-                HeroFactory.CreateNewHero();
-        }
+        ShowHeroInfo(hero);
 
-        hero.Wallet.Deposit(100);
+        Enemy enemy = EnemyFactory.CreateRandomEnemy();
 
-        ShopMenu shopMenu = new ShopMenu();
-        shopMenu.Open(hero);
+        ShowEnemyInfo(enemy);
 
-        InventoryMenu inventoryMenu = new();
-        inventoryMenu.Open(hero);
-
-        Console.WriteLine(
-    $"Arma equipada: {hero.EquippedWeapon?.Name ?? "Nenhuma"}"
-);
-
-        Console.WriteLine(
-            $"Armadura equipada: {hero.EquippedArmor?.Name ?? "Nenhuma"}"
-        );
-
-        Enemy enemy =
-            EnemyFactory.CreateRandomEnemy();
-
-        Console.WriteLine();
-        Console.WriteLine(
-            $"Herói: {hero.Name}"
-        );
-
-        Console.WriteLine(
-            $"Nível: {hero.Level}"
-        );
-
-        Console.WriteLine(
-            $"XP: {hero.Experience}"
-        );
-
-        Console.WriteLine(
-            $"Inimigo: {enemy.Name}"
-        );
-
-        Console.WriteLine();
-        Console.WriteLine(
-            "Combate iniciado!"
-        );
-
-        CombatSystem combat =
-            new CombatSystem();
-
-        combat.StartBattle(
+        _combatSystem.StartBattle(
             hero,
             enemy
         );

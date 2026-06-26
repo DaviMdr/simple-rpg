@@ -58,6 +58,8 @@ public static class HeroFactory
             )
         );
 
+
+
         hero.Inventory.Add(
             new Potion(
                 "Poção Grande",
@@ -66,6 +68,8 @@ public static class HeroFactory
                 50
             )
         );
+
+        hero.Wallet.Deposit(100);
 
         return hero;
     }
