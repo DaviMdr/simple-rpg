@@ -4,11 +4,18 @@ using RPG_Simplificado.Utils;
 using RPG_Simplificado.Save;
 using RPG_Simplificado.Finance;
 using RPG_Simplificado.Items;
+using RPG_Simplificado.Systems.Inventory;
 
 namespace RPG_Simplificado.Combat;
 
 public class CombatSystem
 {
+    private readonly InventoryMenu _inventoryMenu;
+
+    public CombatSystem()
+    {
+        _inventoryMenu = new InventoryMenu();
+    }
     public void StartBattle(Heroe hero, Enemy enemy)
     {
         int turn = 1;
@@ -58,7 +65,7 @@ public class CombatSystem
     {
         Console.WriteLine("\n1 - Ataque Normal");
         Console.WriteLine("2 - Habilidade Especial");
-        Console.WriteLine("3 - Usar Poção");
+        Console.WriteLine("3 - Inventário");
 
         int option;
 
@@ -107,7 +114,7 @@ public class CombatSystem
 
             case 3:
                 {
-                    UsePotion(hero);
+                    _inventoryMenu.Open(hero);
                     break;
                 }
 

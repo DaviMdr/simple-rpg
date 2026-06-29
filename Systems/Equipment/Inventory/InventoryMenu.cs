@@ -48,6 +48,19 @@ public class InventoryMenu
         if (item is IEquippable equippable)
         {
             equippable.Equip(heroe);
+            return;
+        }
+
+        if (item is IUsable usable)
+        {
+            usable.Use(heroe);
+
+            Console.WriteLine(
+                $"{heroe.Name} utilizou {item.Name}."
+            );
+
+            heroe.Inventory.Remove(item);
+            return;
         }
     }
 }

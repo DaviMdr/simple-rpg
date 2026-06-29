@@ -9,6 +9,15 @@ public class EquipmentManager
         Heroe hero,
         Weapon weapon)
     {
+        Weapon? oldWeapon = hero.EquippedWeapon;
+
+        if (oldWeapon != null)
+        {
+            hero.Inventory.Add(oldWeapon);
+        }
+
+        hero.Inventory.Remove(weapon);
+
         hero.EquippedWeapon = weapon;
 
         Console.WriteLine(
@@ -20,6 +29,15 @@ public class EquipmentManager
         Heroe hero,
         Armor armor)
     {
+        Armor? oldArmor = hero.EquippedArmor;
+
+        if (oldArmor != null)
+        {
+            hero.Inventory.Add(oldArmor);
+        }
+
+        hero.Inventory.Remove(armor);
+
         hero.EquippedArmor = armor;
 
         Console.WriteLine(

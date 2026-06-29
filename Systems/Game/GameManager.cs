@@ -64,7 +64,8 @@ public class GameManager
         _inventoryMenu = new InventoryMenu();
         _combatSystem = new CombatSystem();
     }
-    public void Start()
+
+    private int ShowInitialMenu()
     {
         Console.WriteLine("=== RPG Simplificado ===");
 
@@ -80,6 +81,16 @@ public class GameManager
         catch
         {
             Console.WriteLine("Opção inválida.");
+            return -1;
+        }
+
+        return menuOption;
+    }
+    public void Start()
+    {
+        int menuOption = ShowInitialMenu();
+        if (menuOption == -1)
+        {
             return;
         }
 
