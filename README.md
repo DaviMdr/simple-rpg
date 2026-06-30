@@ -1,38 +1,20 @@
 # RPG Simplificado
 
-Um RPG de console desenvolvido em C# com foco em Programação Orientada a Objetos (POO), arquitetura em camadas e boas práticas de desenvolvimento.
+Um RPG de console desenvolvido em C# com foco em Programação Orientada a Objetos, arquitetura de software e boas práticas de desenvolvimento.
 
-O objetivo do projeto é simular a evolução de um sistema real, aplicando conceitos como herança, polimorfismo, interfaces, gerenciamento de estado, refatoração e persistência de dados.
+O projeto é desenvolvido de forma incremental, simulando a evolução de um software real.
 
 ---
 
 ## Funcionalidades
 
-- Criação de heróis
-- Sistema de classes
-  - Guerreiro
-  - Mago
-  - Arqueiro
-
-- Sistema de combate por turnos
-
+- Sistema de combate
 - Sistema de equipamentos
-  - Armas
-  - Armaduras
-
 - Inventário
-
 - Loja
-
-- Sistema de ouro
-
-- Experiência
-
 - Progressão de nível
-
-- Fábricas (Factories)
-
-- GameManager responsável pelo fluxo do jogo
+- Game Loop
+- Persistência de dados
 
 ---
 
@@ -40,33 +22,38 @@ O objetivo do projeto é simular a evolução de um sistema real, aplicando conc
 
 - C#
 - .NET
-- Programação Orientada a Objetos
-- System.Text.Json (temporariamente)
+- POO
+- JSON (temporário)
 - SQLite (planejado)
+
+---
+
+## Arquitetura
+
+```mermaid
+...
+```
 
 ---
 
 ## Estrutura
 
 ```text
-Characters
-Combat
-Finance
-Interfaces
-Items
-Save
-Systems
-Utils
-Program.cs
+...
 ```
 
 ---
 
-## Objetivos
+## Documentação
 
-Este projeto não busca apenas criar um RPG.
+A documentação detalhada encontra-se em **docs/**.
 
-O principal objetivo é servir como projeto de estudo e portfólio, demonstrando evolução contínua na aplicação de conceitos de engenharia de software.
+- 📄 Architecture.md
+- 📄 Combat.md
+- 📄 Equipment.md
+- 📄 SaveSystem.md
+- 📄 Roadmap.md
+- 📄 FutureFeatures.md
 
 ---
 
@@ -75,3 +62,9 @@ O principal objetivo é servir como projeto de estudo e portfólio, demonstrando
 Consulte:
 
 docs/Roadmap.md
+
+---
+
+## Licença
+
+MIT
